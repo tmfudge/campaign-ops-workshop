@@ -1,168 +1,161 @@
-# Campaign Operations Workshop: Standard Operating Procedure (SOP)
+# Workshop Environment Setup SOP
+Version: 1.0
+Last Updated: January 12, 2025
 
-## Section 1: Initial Setup
+## Purpose
+This SOP provides comprehensive instructions for setting up and maintaining the workshop environment, including all necessary tools, repositories, and configurations.
 
-### 1.1 Required Software Installation
-1. Install VS Code
-   - Go to https://code.visualstudio.com/
-   - Click the download button for your operating system
-   - Run the installer
-   - Open VS Code after installation
+## 1. Initial Setup
 
-2. Install Git
-   - Go to https://git-scm.com/downloads
-   - Download and install Git for your operating system
-   - Open terminal/command prompt and verify installation:
-     ```bash
-     git --version
-     ```
+### 1.1 Software Installation
+1. Required Software:
+   - VS Code
+   - Git (version 2.39.3 or higher)
+   - Node.js (latest LTS version)
+   - GitHub Desktop (optional)
 
-3. Install Essential VS Code Extensions
-   - Click the Extensions icon in VS Code (looks like four squares)
-   - Search for and install:
-     - "GitHub Pull Requests and Issues"
-     - "GitLens"
-     - "Markdown All in One"
+2. Installation Steps:
+   ```bash
+   # Check Git version
+   git --version
 
-### 1.2 GitHub Account Setup
-1. Create GitHub Account (if you don't have one)
-   - Go to https://github.com
-   - Click "Sign up"
-   - Follow the registration process
-   - Verify your email address
+   # Check Node version
+   node --version
+   ```
 
-2. Configure Git with GitHub
-   - Open terminal in VS Code (Top menu: View > Terminal)
-   - Set your Git username:
-     ```bash
-     git config --global user.name "Your Name"
-     ```
-   - Set your Git email:
-     ```bash
-     git config --global user.email "your-email@example.com"
-     ```
+### 1.2 GitHub Repository Setup
+1. Repository Creation:
+   ```bash
+   # Navigate to Documents
+   cd Documents
 
-### 1.3 Creating Your First Repository
-1. Create Repository on GitHub
-   - Go to https://github.com
-   - Click the "+" in the top right
-   - Select "New repository"
-   - Name it "campaign-ops-workshop"
-   - Add a description: "AI-Driven Marketing Campaign Operations Workshop"
-   - Select "Public"
-   - Check "Add a README file"
-   - Click "Create repository"
+   # Create and initialize repository
+   mkdir campaign-ops-workshop
+   cd campaign-ops-workshop
+   git init
+   git branch -M main
+   ```
 
-2. Clone Repository in VS Code
-   - In VS Code, press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac)
-   - Type "Git: Clone"
-   - Press Enter
-   - Paste your repository URL
-   - Select a folder on your computer to store the project
-   - Click "Open" when prompted
+2. Folder Structure Creation:
+   ```bash
+   # Create main folders
+   mkdir -p docs assets templates prompts scripts
 
-### 1.4 Basic Repository Structure
-1. Create Essential Folders
-   - In VS Code terminal, create the folder structure:
-     ```bash
-     # Create main folders
-     mkdir -p docs assets templates prompts scripts
+   # Create subfolders
+   mkdir -p assets/presentations assets/images assets/videos
+   mkdir -p docs/guides docs/examples docs/tutorials
+   mkdir -p templates/hubspot templates/zapier templates/email
+   mkdir -p prompts/claude prompts/chatgpt
+   ```
 
-     # Create subfolders
-     mkdir -p assets/presentations assets/images assets/videos
-     mkdir -p docs/guides docs/examples docs/tutorials
-     mkdir -p templates/hubspot templates/zapier templates/email
-     mkdir -p prompts/claude prompts/chatgpt
-     ```
+3. Git Visibility Setup:
+   ```bash
+   # Add .gitkeep to maintain folder structure
+   touch docs/.gitkeep
+   touch assets/presentations/.gitkeep
+   touch assets/images/.gitkeep
+   touch assets/videos/.gitkeep
+   touch docs/guides/.gitkeep
+   touch docs/examples/.gitkeep
+   touch docs/tutorials/.gitkeep
+   touch templates/hubspot/.gitkeep
+   touch templates/zapier/.gitkeep
+   touch templates/email/.gitkeep
+   touch prompts/claude/.gitkeep
+   touch prompts/chatgpt/.gitkeep
+   touch scripts/.gitkeep
+   ```
 
-2. Make Folders Visible in Git
-   - Empty folders won't show in Git by default
-   - Add .gitkeep files to make them visible:
-     ```bash
-     # Add .gitkeep to each folder
-     touch docs/.gitkeep
-     touch assets/presentations/.gitkeep
-     touch assets/images/.gitkeep
-     touch assets/videos/.gitkeep
-     touch docs/guides/.gitkeep
-     touch docs/examples/.gitkeep
-     touch docs/tutorials/.gitkeep
-     touch templates/hubspot/.gitkeep
-     touch templates/zapier/.gitkeep
-     touch templates/email/.gitkeep
-     touch prompts/claude/.gitkeep
-     touch prompts/chatgpt/.gitkeep
-     touch scripts/.gitkeep
+### 1.3 Repository Configuration
+1. Git Configuration:
+   ```bash
+   git config --global user.name "Your Name"
+   git config --global user.email "your-email@example.com"
+   ```
 
-     # Add and commit these files
-     git add -A
-     git commit -m "Add .gitkeep files to maintain folder structure"
-     git push origin main
-     ```
+2. GitHub Connection:
+   ```bash
+   git remote add origin [your-repository-url]
+   git push -u origin main
+   ```
 
-2. Create Initial Files
-   - Right-click in Explorer > New File
-   - Create these files:
-     - WORKSHOP.md (workshop overview)
-     - SETUP.md (setup instructions)
-     - .gitignore (for files to ignore)
+### 1.4 Tool Authentication
+1. GitHub Authentication
+   - Generate SSH key if needed
+   - Add SSH key to GitHub account
+   - Test connection
 
-### 1.5 Making Your First Commit
-1. Stage Changes
-   - Click the Source Control icon in VS Code (branch icon)
-   - Click the "+" next to each changed file to stage them
+2. VS Code Setup
+   - Install recommended extensions
+   - Configure Git integration
+   - Set up workspace settings
 
-2. Commit Changes
-   - Enter a commit message: "Initial workshop setup"
-   - Click the checkmark or press `Ctrl+Enter`
+## 2. Maintenance Procedures
 
-3. Push Changes
-   - Click the "..." menu in Source Control
-   - Select "Push"
-   - Enter your GitHub credentials if prompted
+### 2.1 Regular Updates
+1. Repository Updates:
+   ```bash
+   git pull origin main
+   git push origin main
+   ```
 
-## Section 2: Workshop Content Organization
+2. Documentation Updates:
+   - Review and update SOPs monthly
+   - Update README as needed
+   - Maintain change logs
 
-### 2.1 Documentation Structure
-1. Workshop Overview
-   - Create docs/README.md
-   - Include:
-     - Workshop objectives
-     - Prerequisites
-     - Tools required
-     - Learning outcomes
+### 2.2 Backup Procedures
+1. Local Backups:
+   - Create regular local backups
+   - Document backup location
+   - Test restore procedures
 
-2. Implementation Guides
-   - Create docs/guides/
-   - Separate guides for:
-     - HubSpot setup
-     - AI tools configuration
-     - Integration setup
+2. Remote Backups:
+   - Maintain GitHub repository
+   - Consider secondary remote
+   - Document recovery steps
 
-### 2.2 Template Organization
-1. Create Template Categories
-   - templates/hubspot/ (HubSpot workflows)
-   - templates/email/ (Email templates)
-   - templates/automation/ (Automation workflows)
+## 3. Troubleshooting
 
-2. Template Documentation
-   - Add README.md in each template folder
-   - Document usage instructions
-   - Include examples
+### 3.1 Common Issues
+1. Git Issues:
+   - Connection problems
+   - Push/pull conflicts
+   - Authentication errors
 
-## Next Steps
-- Setting up AI tool connections
-- Creating workshop materials
-- Developing automation workflows
-- Building presentation assets
+2. Environment Issues:
+   - Path problems
+   - Permission errors
+   - Tool conflicts
 
-Note: This SOP will be continuously updated as we progress through the workshop development.
+### 3.2 Resolution Steps
+1. Git Problems:
+   ```bash
+   # Reset local changes
+   git reset --hard origin/main
 
-## For Workshop Students
-If you're a student accessing this repository:
-1. Follow Section 1.1 and 1.2 for initial setup
-2. Skip Section 1.3 (repository creation)
-3. Instead of cloning, you'll fork the repository:
-   - Click "Fork" in the top right of the repository page
-   - Follow Section 1.4 and beyond for working with the content
+   # Clean untracked files
+   git clean -fd
+   ```
 
+2. Environment Problems:
+   - Verify installations
+   - Check configurations
+   - Validate permissions
+
+## 4. Quality Control
+
+### 4.1 Testing Procedures
+1. Setup Validation:
+   - Test all tool connections
+   - Verify access rights
+   - Check configurations
+
+2. Documentation Review:
+   - Verify accuracy
+   - Update procedures
+   - Test instructions
+
+## Change Log
+- 2025-01-12: Initial SOP creation
+- [Future updates to be logged here]
